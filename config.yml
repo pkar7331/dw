@@ -1,0 +1,13 @@
+database:
+
+  driverClass: org.postgresql.Driver
+  user: postgres
+  password: postgres
+  url: jdbc:postgresql://10.0.2.9:5432/dvdrental
+  #properties:
+  #              hibernate.dialect: org.hibernate.dialect.MySQLDialect
+  #              hibernate.generate_statistics: false
+  #              hibernate.show_sql: true
+  #              hibernate.hbm2ddl.auto: create
+template: Hello, %s!
+defaultName: Stranger

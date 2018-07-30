@@ -1,9 +1,0 @@
-database:
-  driverClass: org.postgresql.Driver
-  user: postgres
-  password: postgres
-  url: jdbc:postgresql://10.0.2.9:5432/dvdrental
-
-  checkConnectionWhileIdle: false
-template: Hello, %s!
-defaultName: Stranger

@@ -1,15 +1,22 @@
 package helloworld;
 
 
-import helloworld.api.actor;
+import helloworld.api.Actor;
 import helloworld.config.HelloWorldConfiguration;
 
+import helloworld.dao.ActorDAO;
+import helloworld.resource.ActorResource;
 import helloworld.resource.HelloWorldResource;
 import io.dropwizard.Application;
+
+//import io.dropwizard.db.DataSourceFactory;
+
 import io.dropwizard.db.DataSourceFactory;
+import io.dropwizard.hibernate.HibernateBundle;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
-import io.dropwizard.hibernate.HibernateBundle;
+
+
 
 public class App extends Application<HelloWorldConfiguration> {
 
@@ -18,7 +25,7 @@ public class App extends Application<HelloWorldConfiguration> {
     }
 
 
-    private final HibernateBundle<HelloWorldConfiguration> hibernate = new HibernateBundle<HelloWorldConfiguration>(actor.class) {
+    private final HibernateBundle<HelloWorldConfiguration> hibernate = new HibernateBundle<HelloWorldConfiguration>(Actor.class) {
         @Override
         public DataSourceFactory getDataSourceFactory(HelloWorldConfiguration configuration) {
             return configuration.getDataSourceFactory();
@@ -33,13 +40,16 @@ public class App extends Application<HelloWorldConfiguration> {
 
     @Override
     public void run(HelloWorldConfiguration configuration, Environment environment) throws Exception {
+        /*
         final HelloWorldResource resource = new HelloWorldResource(
                 configuration.getTemplate(),
                 configuration.getDefaultName()
         );
-        environment.jersey().register(resource);
+        environment.jersey().register(resource);*/
+        final ActorDAO actorDAO = new ActorDAO(hibernate.getSessionFactory());
+        environment.jersey().register(new ActorResource(actorDAO));
+    }
+
     }
 
 
-
-}
