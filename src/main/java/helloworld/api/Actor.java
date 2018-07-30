@@ -11,6 +11,15 @@ public class Actor {
     @GeneratedValue
     private long actorId;
 
+    public Actor() {
+    }
+
+    public Actor(String firstName, String lastName, Time lastUpdate) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.lastUpdate = lastUpdate;
+    }
+
     private String firstName;
     private String lastName;
     private Time lastUpdate;
