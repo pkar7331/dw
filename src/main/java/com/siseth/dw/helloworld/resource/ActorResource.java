@@ -10,11 +10,10 @@ import io.swagger.annotations.Api;
 
 
 import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
+
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
-import javax.ws.rs.core.UriBuilder;
+
 import java.util.List;
 
 @Path("/actors")
@@ -49,4 +48,21 @@ public class ActorResource{
     public List<Actor> findAll(){
         return actorDAO.findAll();
     }
+
+    @DELETE
+    @Path("/delete/{id}")
+    @UnitOfWork
+    public void deleteById(@PathParam("id") LongParam id) {
+        actorDAO.delete(actorDAO.findById(id.get()));
+    }
+/*
+    @PUT
+    @Path("/delete/{id}")
+    @UnitOfWork
+    public Actor update(@PathParam("id") Long id, @Valid Actor actor{
+        actor.setActor_id(id);
+        actorDAO.update(actor);
+        return actor;
+    }
+*/
 }

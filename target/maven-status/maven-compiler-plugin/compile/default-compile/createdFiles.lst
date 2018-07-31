@@ -1,0 +1,9 @@
+com\siseth\dw\helloworld\resource\ActorResource.class
+com\siseth\dw\helloworld\api\Actor.class
+com\siseth\dw\helloworld\App$2.class
+com\siseth\dw\helloworld\App.class
+com\siseth\dw\helloworld\dao\ActorDAO.class
+com\siseth\dw\helloworld\config\HelloWorldConfiguration.class
+com\siseth\dw\helloworld\api\Saying.class
+com\siseth\dw\helloworld\App$1.class
+com\siseth\dw\helloworld\resource\HelloWorldResource.class

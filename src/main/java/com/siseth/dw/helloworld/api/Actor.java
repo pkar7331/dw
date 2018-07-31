@@ -1,7 +1,9 @@
 package com.siseth.dw.helloworld.api;
 
 import javax.persistence.*;
-import java.sql.Time;
+import java.sql.Date;
+//import java.sql.Date;
+//import java.sql.Time;
 
 @Entity
 @Table(schema = "public", name = "actor")
@@ -23,7 +25,7 @@ public class Actor {
     public Actor() {
     }
 
-    public Actor(long actor_id, String first_name, String last_name, Time last_update) {
+    public Actor(long actor_id, String first_name, String last_name, Date last_update) {
         this.actor_id = actor_id;
         this.first_name = first_name;
         this.last_name = last_name;
@@ -54,15 +56,15 @@ public class Actor {
         this.last_name = last_name;
     }
 
-    public Time getLast_update() {
+    public Date getLast_update() {
         return last_update;
     }
 
-    public void setLast_update(Time last_update) {
+    public void setLast_update(Date last_update) {
         this.last_update = last_update;
     }
 
     private String first_name;
     private String last_name;
-    private Time last_update;
+    private Date last_update;
 }

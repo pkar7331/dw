@@ -23,4 +23,12 @@ public class ActorDAO extends AbstractDAO<Actor> {
         return list(namedQuery("com.siseth.dw.helloworld.api.Actor.findAll"));
     }
 
+    public void delete(Actor actor){
+        currentSession().delete(actor);
+    }
+
+    public void update(Actor actor){
+        currentSession().saveOrUpdate(actor);
+    }
+
 }
