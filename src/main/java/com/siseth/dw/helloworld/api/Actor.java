@@ -4,8 +4,16 @@ import javax.persistence.*;
 import java.sql.Time;
 
 @Entity
-@Table(schema = "public", name="Actor")
+@Table(schema = "public", name = "actor")
 @SequenceGenerator(schema = "public", name = "id_generator", sequenceName = "actor_actor_id_seq", allocationSize = 1)
+@NamedQueries(
+        {
+                @NamedQuery(
+                        name = "com.siseth.dw.helloworld.api.Actor.findAll",
+                        query = "SELECT a FROM Actor a"
+                )
+        }
+)
 public class Actor {
 
     @Id

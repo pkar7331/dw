@@ -4,6 +4,8 @@ import com.siseth.dw.helloworld.api.Actor;
 import io.dropwizard.hibernate.AbstractDAO;
 import org.hibernate.SessionFactory;
 
+import java.util.List;
+
 public class ActorDAO extends AbstractDAO<Actor> {
     public ActorDAO(SessionFactory factory){
         super(factory);
@@ -13,7 +15,12 @@ public class ActorDAO extends AbstractDAO<Actor> {
         return get(id);
     }
 
-    public long create(Actor actor){
-        return persist(actor).getActor_id();
+    public Actor create(Actor actor){
+        return persist(actor);
     }
+
+    public List<Actor> findAll() {
+        return list(namedQuery("com.siseth.dw.helloworld.api.Actor.findAll"));
+    }
+
 }

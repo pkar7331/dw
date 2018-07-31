@@ -9,8 +9,13 @@ import io.dropwizard.jersey.params.LongParam;
 import io.swagger.annotations.Api;
 
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+import javax.ws.rs.core.UriBuilder;
+import java.util.List;
 
 @Path("/actors")
 @Api(value = "/actors", description = "Operations about actors")
@@ -30,7 +35,18 @@ public class ActorResource{
     public Actor findActor(@PathParam("id") LongParam id){
         return actorDAO.findById(id.get());
     }
-    
 
+    @POST
+    @UnitOfWork
+    @Path("/new")
+    public Actor createActor(Actor actor){
+        return actorDAO.create(actor);
+    }
 
+    @GET
+    @Path("/all")
+    @UnitOfWork
+    public List<Actor> findAll(){
+        return actorDAO.findAll();
+    }
 }
