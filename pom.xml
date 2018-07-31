@@ -22,6 +22,8 @@
 
     <properties>
         <dropwizard.version>1.0.6</dropwizard.version>
+        <postgresql.version>9.4.1211</postgresql.version>
+        <swagger.version>1.0.0-1</swagger.version>
     </properties>
 
     <dependencies>
@@ -47,13 +49,19 @@
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
-            <version>42.1.1</version>
+            <version>${postgresql.version}</version>
         </dependency>
 
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <scope>runtime</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.smoketurner</groupId>
+            <artifactId>dropwizard-swagger</artifactId>
+            <version>${swagger.version}</version>
         </dependency>
 
     </dependencies>

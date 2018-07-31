@@ -1,4 +1,4 @@
-package helloworld.resource;
+package com.siseth.dw.helloworld.resource;
 
 import java.util.*;
 import java.util.concurrent.atomic.AtomicLong;
@@ -12,7 +12,7 @@ import javax.ws.rs.core.MediaType;
 
 import com.codahale.metrics.annotation.Timed;
 
-import helloworld.api.Saying;
+import com.siseth.dw.helloworld.api.Saying;
 
 @Path("/hello-world")
 @Produces(MediaType.APPLICATION_JSON)

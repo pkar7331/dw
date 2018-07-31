@@ -1,4 +1,4 @@
-package helloworld.api;
+package com.siseth.dw.helloworld.api;
 
 import org.hibernate.validator.constraints.Length;
 

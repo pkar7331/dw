@@ -1,20 +1,19 @@
-package helloworld.resource;
+package com.siseth.dw.helloworld.resource;
 
 
 import com.codahale.metrics.annotation.Timed;
-import helloworld.api.Actor;
-import helloworld.dao.ActorDAO;
+import com.siseth.dw.helloworld.api.Actor;
+import com.siseth.dw.helloworld.dao.ActorDAO;
 import io.dropwizard.hibernate.UnitOfWork;
 import io.dropwizard.jersey.params.LongParam;
+import io.swagger.annotations.Api;
 
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 
-@Path("/users")
+@Path("/actors")
+@Api(value = "/actors", description = "Operations about actors")
 @Produces(MediaType.APPLICATION_JSON)
 public class ActorResource{
 
@@ -31,5 +30,7 @@ public class ActorResource{
     public Actor findActor(@PathParam("id") LongParam id){
         return actorDAO.findById(id.get());
     }
+    
+
 
 }

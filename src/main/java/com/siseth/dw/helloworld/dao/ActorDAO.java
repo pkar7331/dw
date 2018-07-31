@@ -1,10 +1,8 @@
-package helloworld.dao;
+package com.siseth.dw.helloworld.dao;
 
-import helloworld.api.Actor;
+import com.siseth.dw.helloworld.api.Actor;
 import io.dropwizard.hibernate.AbstractDAO;
 import org.hibernate.SessionFactory;
-
-import java.util.List;
 
 public class ActorDAO extends AbstractDAO<Actor> {
     public ActorDAO(SessionFactory factory){
@@ -16,8 +14,6 @@ public class ActorDAO extends AbstractDAO<Actor> {
     }
 
     public long create(Actor actor){
-        return persist(actor).getActorId();
+        return persist(actor).getActor_id();
     }
-
-
 }
