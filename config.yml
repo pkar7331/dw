@@ -1,3 +1,8 @@
+app:
+  migration: true
+  reinstall: true
+  repair: true
+
 database:
   # the name of your JDBC driver
   driverClass: org.postgresql.Driver
@@ -38,3 +43,13 @@ swagger:
   version: 1
   description: Dokumentacja WebService
   contact: Set(h) | Systemy Informatyczne
+
+
+flyway:
+  encoding: UTF-8
+  metaDataTableName: schema_version
+  sqlMigrationPrefix: V
+  sqlMigrationSeparator: __
+  sqlMigrationSuffix: .sql
+  locations:
+  - db/migration

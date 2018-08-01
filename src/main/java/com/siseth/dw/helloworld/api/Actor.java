@@ -2,8 +2,7 @@ package com.siseth.dw.helloworld.api;
 
 import javax.persistence.*;
 import java.sql.Date;
-//import java.sql.Date;
-//import java.sql.Time;
+
 
 @Entity
 @Table(schema = "public", name = "actor")
